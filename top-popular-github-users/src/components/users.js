@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import {Usr, Img, Name, Info} from './users-styles';
 
-function User() {
+function User(props) {
     return(
         <Usr>
-            <Img alt="user-image" src="https://www.abc.net.au/news/image/9667872-3x2-700x467.jpg"/>
-            <a href="#">
-                <Name isLink>user_name</Name>
+            <Img alt="user-image" src={props.avatarUrl}/>
+            <a target="_blank" href={`https://github.com/${props.login}`}>
+                <Name isLink>{props.login}</Name>
             </a>
-            <Name>Name Lastname</Name>  
-            <Info>some sdadsadsdasdasdasdasdsa sad sad aas das  asd a a   ddddddddddt</Info>
+            <Info>stars:{props.starsCount}</Info>
         </Usr>
     );
 }

@@ -26,9 +26,9 @@ export const Name = styled.h2 `
 `;
 
 export const Info = styled.p `
-    float: left;
-    display: flex;
-    position: absolute;
-    margin-left: 15%;
-    margin-top: 50px;
+    float: right;
+    margin-right: 5%;
+    margin-top: 10px;
+    color: orange;
+    font-size: 2em;
 `;
