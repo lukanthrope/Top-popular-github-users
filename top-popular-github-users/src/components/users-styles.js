@@ -29,6 +29,7 @@ export const Info = styled.p `
     float: right;
     margin-right: 5%;
     margin-top: 10px;
+    margin-bottom: 2px;
     color: orange;
     font-size: 2em;
 `;
