@@ -39,3 +39,31 @@ export const Err = styled.div `
     font-size: 1.3em;
     margin-top: 15%;
 `;
+
+
+export const Input = styled.input `
+    text-align: center;
+    font-size: 1.3em;
+`;
+
+
+export const But = styled.input `
+    text-align: center;
+    font-size: 1.2em;
+    margin-left: 5px;
+    margin-top: 0px;
+
+    background-color: #E8E8E8;
+	-moz-border-radius:15px;
+	-webkit-border-radius:15px;
+	border-radius:15px;
+	border:2px solid #333029;
+	display:inline-block;
+	cursor:pointer;
+	color:#505739;
+	font-family:Arial;
+	font-size:14px;
+	font-weight:bold;
+    padding:8px 14px;
+	text-decoration:none;
+`;

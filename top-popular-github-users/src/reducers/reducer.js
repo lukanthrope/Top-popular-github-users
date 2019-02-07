@@ -1,6 +1,7 @@
 let defaultState = {
     users: [],
-    error: false
+    error: false,
+    city: ''
 };
 
 const reducer = (state=defaultState, action) => {
@@ -27,6 +28,13 @@ const reducer = (state=defaultState, action) => {
         return {
             ...state,
             users: newUsers
+        }
+    }
+
+    if (action.type === "INPUT_CITY") {
+        return {
+            ...state,
+            city: action.city
         }
     }
 
