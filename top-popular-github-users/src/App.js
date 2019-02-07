@@ -4,8 +4,7 @@ import {connect} from 'react-redux';
 import Container from './components/container';
 import {LOAD} from './actions/actions';
 import User from './components/users';
-
-
+import {Err} from './components/users-styles';
 
 function mapStateToProps(state) {
   return {
@@ -35,17 +34,19 @@ class App extends Component {
             <h2>Most popular Github users in Khmelnytskyi</h2>
           </Header>
           <Container>
-            {error && <div>
-              <h1>Try later</h1>
-            </div>
+            {error && <Err>
+                <h1>Try later - something went wrong :\</h1>
+              </Err>
             }
             {users.map((user) => {
-              return(<User 
-                avatarUrl={user.avatar_url} 
-                key={user.id}
-                login={user.login}
-                starsCount={user.starsCount}
-                />);
+              return(
+                <User 
+                  avatarUrl={user.avatar_url} 
+                  key={user.id}
+                  login={user.login}
+                  starsCount={user.starsCount}
+                />
+                );
             })}
           
           </Container>

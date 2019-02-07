@@ -32,3 +32,10 @@ export const Info = styled.p `
     color: orange;
     font-size: 2em;
 `;
+
+export const Err = styled.div `
+    color: red;
+    text-align: center;
+    font-size: 1.3em;
+    margin-top: 15%;
+`;
