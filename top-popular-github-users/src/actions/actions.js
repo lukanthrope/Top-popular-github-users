@@ -32,6 +32,11 @@ export const LOAD = (city = 'Khmelnytskyi') => dispatch => {
                                 sumOfStars
                             }, 
                         });
+                    })
+                    .catch((error) => {
+                        dispatch({
+                            type: 'ERROR'
+                        })
                     });
             });
         })
