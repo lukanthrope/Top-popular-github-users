@@ -3,8 +3,11 @@ import {connect} from 'react-redux';
 import {ThemeProvider} from 'styled-components';
 import Header from './components/header';
 import Container from './components/container';
+import Users from './components/users';
+import {LOAD} from './actions/actions';
+import User from './components/users';
 
-import './App.css';
+
 
 function mapStateToProps(state) {
   return {
@@ -14,9 +17,44 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    load: () => dispatch({type: 'LOAD'}),
+    load: () => dispatch(LOAD()),
   }
 }
+
+const theme = {
+  font: "Calibri"
+};
+
+class App extends Component {
+
+  componentDidMount() {
+    this.props.load();
+    console.log(this.props.users[0]);
+  }
+
+  render() {
+    const {users, load} = this.props;
+    let usrs = [1, 2, 3, 4, 5];
+    return (
+      <ThemeProvider theme={theme}> 
+        <div>
+          <Header>
+            <h2 onClick={() => {load()}}>Most popular Github users in Khmelnytskyi</h2>
+          </Header>
+          <Container>
+            {users.length ? users[0].login : 'search somebody'}
+            
+            {usrs.map((user) => {
+              return(<User />);
+            })}
+          
+          </Container>
+        </div>
+      </ThemeProvider>
+    );
+  }
+}
+
 /*
 function App({value, increment, decrement}) {
   return (
@@ -34,23 +72,5 @@ function App({value, increment, decrement}) {
 export default connect(mapStateToProps, mapDispatchToProps)(App);
 */
 
-const theme = {
-  font: "Calibri"
-};
-
-function App({users, load}) {
-  return (
-    <ThemeProvider theme={theme}> 
-      <div onLoad={() => load()}>
-        <Header>
-          <h2>Most popular Github users in Khmelnytskyi</h2>
-        </Header>
-        <Container>
-          {users.length ? users[0].login : 'search somebody'}
-        </Container>
-      </div>
-    </ThemeProvider>
-  );
-}
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

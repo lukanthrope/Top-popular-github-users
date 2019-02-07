@@ -1,10 +1,12 @@
 import axios from 'axios';
 
-export function LOAD() {
-    return(dispatch) => {
-        return axios.get("https://api.github.com/search/users?q=location:Khmelnytskyi")
-            ,then((response) => {
-                dispatch(console.log(response));
-            })
-        }
+export const LOAD = () => dispatch => {
+    return axios.get("https://api.github.com/search/users?q=location:Khmelnytskyi")
+        .then((response) => {
+        console.log(response);
+        dispatch({
+            type: 'LOAD',
+            items: response
+        });
+    })
 }

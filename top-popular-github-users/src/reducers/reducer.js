@@ -4,6 +4,7 @@ let defaultState = {
 
 const reducer = (state=defaultState, action) => {
     if (action.type === "LOAD") {
+        console.log('load');
         return {
             ...state,
             users: action.items
